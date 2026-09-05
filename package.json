@@ -1,0 +1,35 @@
+{
+  "name": "dsh-usage-stats",
+  "version": "0.1.0",
+  "description": "DSH 使用统计：在 llm/stream 采集真实 token，按价单计费，JSONL 落盘，提供 web 仪表盘与 /usage 命令（模仿 cc-switch 用量统计）",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "files": [
+    "lib",
+    "prices.default.json",
+    "README.zh.md",
+    "LICENSE",
+    "NOTICE.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "ZhouCZenith738"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "usage",
+    "stats",
+    "billing",
+    "token"
+  ],
+  "dependencies": {
+    "@deepseek-ai/dsh-home-paths": "^0.1.2-rc.1"
+  }
+}

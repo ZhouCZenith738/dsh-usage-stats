@@ -1,0 +1,71 @@
+{
+  "//": "DSH 用量统计价单。单位：每百万 token 的币值（per 0000001 tokens）。可自由编辑，改动无需重启（mtime 感知自动重载）。匹配策略按 rates[].match：exact 全等 / prefix 前缀（匹配 deepseek-v4-flash-0731 这类时间戳后缀，命多条取最长）/ any 兜底。provider=\"*\" 表示所有路由。",
+  "currency": "CNY",
+  "symbol": "¥",
+  "per": "per_1M_tokens",
+  "rates": [
+    {
+      "provider": "deepseek-official",
+      "model": "deepseek-v4-flash",
+      "match": "prefix",
+      "inputMiss": 3.0,
+      "inputHit": 0.1,
+      "output": 9.0,
+      "note": "DeepSeek 官网 V4-Flash 峰值价（CNY/百万 token，工作日 09-12/14-18 峰值，错峰约减半）。2026-07 采集自公开报道，务必核对外部价 api-docs.deepseek.com 后修正。"
+    },
+    {
+      "provider": "deepseek-official",
+      "model": "deepseek-v4-pro",
+      "match": "prefix",
+      "inputMiss": 9.0,
+      "inputHit": 0.3,
+      "output": 27.0,
+      "note": "DeepSeek 官网 V4-Pro 峰值价。需核对。"
+    },
+    {
+      "provider": "deepseek-official",
+      "model": "deepseek-chat",
+      "match": "exact",
+      "inputMiss": 2.0,
+      "inputHit": 0.5,
+      "output": 8.0,
+      "note": "旧 V3 档价格，模型已于 2026-07-24 停售，保留仅作历史对账。"
+    },
+    {
+      "provider": "deepseek-official",
+      "model": "deepseek-reasoner",
+      "match": "exact",
+      "inputMiss": 4.0,
+      "inputHit": 1.0,
+      "output": 16.0,
+      "note": "旧 R1 档价格，模型已于 2026-07-24 停售，保留仅作历史对账。"
+    },
+    {
+      "provider": "*",
+      "model": "deepseek-v4-flash",
+      "match": "prefix",
+      "inputMiss": 3.0,
+      "inputHit": 0.1,
+      "output": 9.0,
+      "note": "bailian/tokenriver 等转售通路对深水系模型的默认价（写码路由价），请以各供应商账单页为准覆盖。"
+    },
+    {
+      "provider": "*",
+      "model": "deepseek-v4-pro",
+      "match": "prefix",
+      "inputMiss": 9.0,
+      "inputHit": 0.3,
+      "output": 27.0,
+      "note": "bailian/tokenriver 等转售通路对 V4-Pro 的默认价，以各供应商账单页为准。"
+    },
+    {
+      "provider": "*",
+      "model": "*",
+      "match": "any",
+      "inputMiss": 0,
+      "inputHit": 0,
+      "output": 0,
+      "note": "未定价模型的兜底：费用按 0 计，模型会出现在仪表盘「未定价」清单中，请在下方补一条规则或修改本条目。"
+    }
+  ]
+}
