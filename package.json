@@ -10,6 +10,7 @@
   "files": [
     "lib",
     "prices.default.json",
+    "README.md",
     "README.zh.md",
     "LICENSE",
     "NOTICE.md"
