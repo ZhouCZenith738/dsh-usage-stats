@@ -21,6 +21,10 @@
   "author": {
     "name": "ZhouCZenith738"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhouCZenith738/dsh-usage-stats.git"
+  },
   "keywords": [
     "dsh",
     "deepseek-harness",
